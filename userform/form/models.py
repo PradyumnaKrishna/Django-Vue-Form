@@ -1,4 +1,4 @@
-import os
+import os, time
 from django.db import models
 from django.dispatch import receiver
 from django.core.validators import RegexValidator, validate_email
@@ -42,4 +42,5 @@ class Form(models.Model):
 @receiver(models.signals.post_save, sender=Form)
 def execute_after_save(sender, instance, created, **kwargs):
     if created:
-        send_email(instance.email, instance.name)
+        # send_email(instance.email, instance.name)
+        time.sleep(5)
