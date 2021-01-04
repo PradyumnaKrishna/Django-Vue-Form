@@ -42,5 +42,4 @@ class Form(models.Model):
 @receiver(models.signals.post_save, sender=Form)
 def execute_after_save(sender, instance, created, **kwargs):
     if created:
-        # send_email(instance.email, instance.name)
-        time.sleep(5)
+        send_email(instance.email, instance.name)
